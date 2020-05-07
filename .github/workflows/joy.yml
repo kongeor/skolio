@@ -1,0 +1,19 @@
+name: Joy
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: install janet
+      run: ./prepare.sh
+    - name: jpm deps
+      run: sudo jpm deps
+    - name: jpm build
+      run: jpm build
