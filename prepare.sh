@@ -8,5 +8,4 @@ cd ~/temp/janet
 git checkout v1.8.1
 make
 sudo make install
-sudo jpm install joy
 cd -

@@ -1,7 +1,7 @@
 (declare-project
   :name "skolio"
   :description ""
-  :dependencies [{:repo "https://github.com/joy-framework/joy" :tag "0.6.0"}
+  :dependencies [{:repo "https://github.com/joy-framework/joy" :tag "0.7.4"}
                  "https://github.com/joy-framework/tester"]
   :author ""
   :license ""
