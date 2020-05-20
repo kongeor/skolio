@@ -1,8 +1,12 @@
 (import joy :prefix "")
 
+(defn select-keys [tbl ks]
+  (reduce (fn [acc k] (merge acc (table k (get tbl k)))) {} ks))
 
 (defn index [request]
-  (application/json (db/fetch-all [:comments])))
+  (let [q (get request :query-string)
+        comments (db/from :comments :where {:thread (q :thread)})]
+    (application/json comments)))
 
 
 (defn create [request]

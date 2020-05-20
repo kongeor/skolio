@@ -11,7 +11,7 @@
 
 (def app (as-> routes/app ?
                (handler ?)
-               #(layout ? layout/app)
+               # (layout ? layout/app)
                (logger ?)
                #(csrf-token ?)
                #(session ?)
@@ -30,6 +30,8 @@
               (or port
                   (env :port)
                   "8000"))]
-    (db/connect)
+    (db/connect (env :database_url))
+    # (print (os/cwd))
+    # (db/migrate (env :database_url))
     (server app port) # stops listening on SIGINT
     (db/disconnect)))
